@@ -1,5 +1,17 @@
+import { useShallow } from "zustand/react/shallow"
+import { useStore } from "./store/store"
+
+ 
 export default function App(){
-  return <></>
+  const { age ,fullName} = useStore(
+    useShallow((state)=>({
+      age:state.age,
+      fullName:state.fullName
+    }))
+  );
+
+  return <>{age +  fullName}</>
+
 }
 
 
